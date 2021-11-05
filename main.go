@@ -98,12 +98,12 @@ func crawl(startUrl string, allowedDomain string) {
 			d.Visit(nextPage)
 		}
 	})
-
-	c.OnHTML("div.FloatRight", func(e *colly.HTMLElement) {
-		nextPage := e.ChildAttr("a", "href")
-		fmt.Println("Next Category Page Link: ", nextPage)
-		c.Visit(nextPage)
-	})
+	// Commented as there is no pagination for the main list of categories.
+	// c.OnHTML("div.FloatRight", func(e *colly.HTMLElement) {
+	// 	nextPage := e.ChildAttr("a", "href")
+	// 	fmt.Println("Next Category Page Link: ", nextPage)
+	// 	c.Visit(nextPage)
+	// })
 
 	// Start scraping on url provided
 	c.Visit(startUrl)
